@@ -7,8 +7,8 @@ class TodoModel {
 
   TodoModel.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
-    todoTitle = json['todo_title'];
-    todoDescription = json['todo_description'];
+    todoTitle = json['title'];
+    todoDescription = json['description'];
   }
 
   Map<String, dynamic> toJson() {

@@ -31,9 +31,16 @@ class HomePageProvider extends ChangeNotifier {
   fetchAllData() async {
     navigatorHelper.showLoader();
     var resData = await DataApi().getAllData(url: '/todo');
-    todoList = await resData
-        .map<TodoModel>((item) => TodoModel.fromJson(item))
-        .toList();
+    print(resData.toString());
+    // todoList = resData.map((entry) {
+    //   return TodoModel(
+    //     todoTitle: entry['title']!,
+    //     todoDescription: entry['description']!,
+    //     sId: entry['_id']!,
+    //   );
+    // }).toList<TodoModel>();
+    todoList =
+        resData.map<TodoModel>((item) => TodoModel.fromJson(item)).toList();
     // allTodos =
     //     resData.map<TodoModel>((item) => TodoModel.fromJson(item)).toList();
     // print(allTodos);
